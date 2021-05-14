@@ -21,9 +21,8 @@ GameObject:
   - component: {fileID: 4100297851376866}
   - component: {fileID: 212213431852588998}
   - component: {fileID: 60177300911607904}
-  - component: {fileID: 114002527191653066}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Triangle 1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,17 +68,6 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5}
       - {x: -0.4330127, y: -0.25000003}
       - {x: 0.43301272, y: -0.24999996}
---- !u!114 &114002527191653066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084545604225402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 424b48f44c3862f49b71451fbb38e0dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212213431852588998
 SpriteRenderer:
   m_ObjectHideFlags: 1

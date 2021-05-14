@@ -5,6 +5,8 @@ using UnityEngine;
 public class FloorController : MonoBehaviour {
 	public GameObject floor1;
 	public GameObject floor2;
+
+	public GameObject[] floors;
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -20,11 +22,12 @@ public class FloorController : MonoBehaviour {
 
 		if (floor2.transform.position.x < 0)
         {
-			floor1.transform.position += new Vector3(20 * 2, 0, 0);
+			var randomFloor = floors[Random.Range(0, floors.Length)];
+			var newFloor = Instantiate(randomFloor, new Vector3(20, 0, 0), Quaternion.identity);
 
-			var tmp = floor1;
+			Destroy(floor1);
 			floor1 = floor2;
-			floor2 = tmp;
+			floor2 = newFloor;
         }
 	}
 }

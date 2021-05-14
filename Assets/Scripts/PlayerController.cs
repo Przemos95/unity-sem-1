@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
 	private bool extraFuel;
 	public float coinTime;
 
+	public float raycastDistance;
+
 	void Start () {
 		isOnGround = true;
 		startingY = transform.position.y;
@@ -55,6 +57,17 @@ public class PlayerController : MonoBehaviour {
 			}
         }
 	}
+
+	void FixedUpdate()
+    {
+		RaycastHit hitInfo;
+		bool isHit = Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, Mathf.Infinity);
+		Debug.Log(isHit);
+		if (isHit)
+        {
+			Debug.Log(hitInfo.collider.gameObject.tag);
+        }
+    }
 
 	void OnTriggerEnter2D(Collider2D other)
     {

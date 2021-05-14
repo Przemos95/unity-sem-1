@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour {
 	public float obstacleSpawnRate;
 	public float obstacleMinX;
 	public float obstacleMaxX;
-	public float obstacleY;
 
 	//coins
 	public List<GameObject> Coins;
@@ -41,8 +40,8 @@ public class GameManager : MonoBehaviour {
 		InGame = true;
 		fuelSlider.value = 1;
 
-		InvokeRepeating("SpawnObstacle", obstacleSpawnRate, obstacleSpawnRate);
-		InvokeRepeating("SpawnCoin", coinSpawnRate, coinSpawnRate);
+		//InvokeRepeating("SpawnObstacle", obstacleSpawnRate, obstacleSpawnRate);
+		//InvokeRepeating("SpawnCoin", coinSpawnRate, coinSpawnRate);
 		ResetButton.SetActive(false);
 
 		fill = fuelSlider
@@ -119,6 +118,7 @@ public class GameManager : MonoBehaviour {
     }
 }
 
+[System.Serializable]
 public class ObstacleObject
 {
 	public GameObject Obstacle;

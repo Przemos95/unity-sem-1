@@ -10,6 +10,6 @@ public class ObjectScroller : MonoBehaviour {
 			return;
 		}
 
-		transform.position -= new Vector3(GameManager.instance.worldSpeed, 0f, 0f);
+		//transform.position -= new Vector3(GameManager.instance.worldSpeed, 0f, 0f);
 	}
 }

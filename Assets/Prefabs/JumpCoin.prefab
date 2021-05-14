@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4285357506390800}
   - component: {fileID: 212415005058783508}
   - component: {fileID: 114079444407358410}
-  - component: {fileID: 114477007888039110}
   - component: {fileID: 61939949339657014}
   m_Layer: 0
   m_Name: JumpCoin
@@ -80,17 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 2
---- !u!114 &114477007888039110
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1861145543646516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 424b48f44c3862f49b71451fbb38e0dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212415005058783508
 SpriteRenderer:
   m_ObjectHideFlags: 1

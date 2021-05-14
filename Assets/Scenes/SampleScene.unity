@@ -778,6 +778,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor1: {fileID: 315401396}
   floor2: {fileID: 478459405}
+  floors:
+  - {fileID: 1698141692057612, guid: 84cc7a943c47b2d4e81d34caf69e1605, type: 2}
+  - {fileID: 1879924092114402, guid: 84eebc32469ec4148987d82759942573, type: 2}
+  - {fileID: 1879924092114402, guid: baaf0da381be45042b186414d7938804, type: 2}
 --- !u!4 &958908408
 Transform:
   m_ObjectHideFlags: 0
@@ -890,7 +894,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 5
 --- !u!212 &1089237758
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -963,6 +967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 6
   coinTime: 3
+  raycastDistance: 500
 --- !u!95 &1089237761
 Animator:
   serializedVersion: 3
@@ -1013,10 +1018,16 @@ MonoBehaviour:
   fuelSlider: {fileID: 877407371}
   InGame: 0
   worldSpeed: 0.2
+  obstacle:
+  - Obstacle: {fileID: 1084545604225402, guid: e7210af035a7fed4caa4ed3c388dc532, type: 2}
+    MinY: -4.5
+    MaxY: -4.4
+  - Obstacle: {fileID: 1255706978278508, guid: 2ea906b626c8c0f49b8572e49833cc10, type: 2}
+    MinY: -0.5
+    MaxY: 2
   obstacleSpawnRate: 2
   obstacleMinX: 11
   obstacleMaxX: 15
-  obstacleY: -4.2
   Coins:
   - {fileID: 1911864054562868, guid: 4398004db95655941bdd30416cfb2ea0, type: 2}
   - {fileID: 1126189173030904, guid: b904f8f72e6840b4c8495603bdb97c76, type: 2}
