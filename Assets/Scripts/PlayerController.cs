@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 
 	public float raycastDistance;
 
+	private int coins = 0;
+
 	void Start () {
 		isOnGround = true;
 		startingY = transform.position.y;
@@ -60,19 +62,27 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate()
     {
-		RaycastHit hitInfo;
-		bool isHit = Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, Mathf.Infinity);
-		Debug.Log(isHit);
-		if (isHit)
-        {
-			Debug.Log(hitInfo.collider.gameObject.tag);
-        }
+		//RaycastHit hitInfo;
+		//bool isHit = Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, raycastDistance, platformMask);
+		//Debug.Log(isHit);
+		//if (isHit)
+  //      {
+		//	Debug.Log(hitInfo.collider.gameObject.tag);
+  //      }
     }
 
 	void OnTriggerEnter2D(Collider2D other)
     {
 		if (other.CompareTag("Obstacle") && isImmortal == false)
         {
+			int savedCoins = 0;
+			if (PlayerPrefs.HasKey("coins"))
+            {
+				savedCoins = PlayerPrefs.GetInt("coins");
+			}
+			savedCoins += coins;
+			PlayerPrefs.SetInt("coins", savedCoins);
+
 			GameManager.instance.GameOver();
 			rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         }
@@ -98,6 +108,11 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 			GameManager.instance.ExtraFuel();
 		}
+
+		if (other.CompareTag("Coin"))
+        {
+			coins++;
+        }
     }
 
 	void ResetCoins()

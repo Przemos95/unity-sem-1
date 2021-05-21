@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 	public Text ScoreText;
-	public GameObject ResetButton;
 	public Slider fuelSlider;
 	
 	private float score;
@@ -42,7 +41,6 @@ public class GameManager : MonoBehaviour {
 
 		//InvokeRepeating("SpawnObstacle", obstacleSpawnRate, obstacleSpawnRate);
 		//InvokeRepeating("SpawnCoin", coinSpawnRate, coinSpawnRate);
-		ResetButton.SetActive(false);
 
 		fill = fuelSlider
 			.GetComponentsInChildren<Image>()
@@ -101,10 +99,20 @@ public class GameManager : MonoBehaviour {
 	public void GameOver()
     {
 		InGame = false;
-		CancelInvoke("SpawnObstacle");
-		CancelInvoke("SpawnCoin");
-		ResetButton.SetActive(true);
-    }
+
+		int highscore = 0;
+		if (PlayerPrefs.HasKey("highscore"))
+        {
+			highscore = PlayerPrefs.GetInt("highscore");
+		}
+
+		if (score > highscore)
+        {
+			PlayerPrefs.SetInt("highscore", (int)score);
+		}
+
+		SceneManager.LoadScene("Menu");
+	}
 
 	public void Restart()
     {
